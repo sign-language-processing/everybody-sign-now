@@ -1,0 +1,10 @@
+.idea/
+
+progress/
+frames/
+web_model/
+web_model.zip
+
+# For now, video isn't public domain.
+# New videos will be recorded and uploaded here.
+data/video.mp4
