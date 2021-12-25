@@ -150,9 +150,9 @@ if __name__ == "__main__":
     dataset = project_dataset({"Amit": (255, 200, 200), "Maayan_1": (200, 200, 255), "Maayan_2": (200, 200, 255)})
 
     fourcc = cv2.VideoWriter_fourcc(*'mp4v')
-    video = cv2.VideoWriter('video.avi', fourcc, 10, (256 * 2, 256))
+    video = cv2.VideoWriter('video.avi', fourcc, 10, (RESOLUTION * 2, RESOLUTION))
 
-    for pose_frame, video_frame in tqdm(itertools.islice(dataset, 0, 500)):
+    for pose_frame, video_frame in tqdm(itertools.islice(dataset, 0, 1000)):
         video.write(cv2.cvtColor(np.hstack((pose_frame, video_frame)), cv2.COLOR_RGB2BGR))
 
     video.release()
