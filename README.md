@@ -67,3 +67,8 @@ Once satisfied with the result, the script can be killed.
 Run `./convert_to_tfjs.sh`
 
 This will create a `web_model` directory with the model in tfjs, quantized to `float16`.
+
+## Additional Resources
+
+- [Can Everybody Sign Now? Exploring Sign Language Video Generation from 2D Poses](https://arxiv.org/abs/2012.10941) - evaluates generated videos quantitatively and qualitatively showing that the current models are not enough to generated adequate videos for Sign Language
+- [Everybody Sign Now: Translating Spoken Language to Photo Realistic Sign Language Video](https://arxiv.org/abs/2011.09846) - proposal for better pose-to-video generation models, in higher quality, and with person-look control
