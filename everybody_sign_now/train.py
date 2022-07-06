@@ -1,6 +1,10 @@
+# LSTM - https://github.com/bright1998/pix2pix_LSTM/blob/main/pix2pix%2BLSTM/models.py
+
 import datetime
 import os
 import time
+
+os.environ["CUDA_VISIBLE_DEVICES"] = "3"
 
 import tensorflow as tf
 from matplotlib import pyplot as plt
@@ -12,7 +16,8 @@ from everybody_sign_now.model import discriminator, discriminator_loss, discrimi
     generator_loss, \
     generator_optimizer
 
-os.makedirs("progress", exist_ok=True)
+progress_dir = 'progress_green'
+os.makedirs(progress_dir, exist_ok=True)
 
 p_dataset = project_dataset({"Amit": (255, 200, 200), "Maayan_1": (200, 200, 255), "Maayan_2": (200, 200, 255)})
 train_dataset = batch_dataset(p_dataset, BATCH_SIZE)
@@ -44,7 +49,7 @@ def generate_images(model, test_input, tar, step):
         # Getting the pixel values in the [0, 1] range to plot.
         plt.imshow(display_list[i] * 0.5 + 0.5)
         plt.axis('off')
-    plt.savefig("progress/" + str(step) + ".png")
+    plt.savefig(progress_dir + "/" + str(step) + ".png")
 
 
 def train_step(input_image, target, step):

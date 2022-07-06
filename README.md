@@ -16,13 +16,22 @@ This repository does not support additional input except for images.
 By default, every image of Maayan is inferenced with a red background (255, 200, 200), 
 and every image of Amit is inferenced with a blue background (200, 200, 255).
 
+#### Data processing
+
+- The videos were recorded in ProRes and were convereted to mp4 using `ffmpeg`.
+- Then, using Final Cut Pro X, removed the green screen using the keying effect, and exported for "desktop".
+- Finally, the FCPX export was processed again by `ffmpeg` to reduce its size (3.5GB -> 250MB).
+```bash
+ffmpeg -i CAM3_output.mp4 -qscale 0 CAM3_norm.mp4
+```
+
 ### Download
 
 Download the data from [here](https://nlp.biu.ac.il/~amit/datasets/GreenScreen/).
 
 Or use the command line:
 ```bash
-wget --no-clobber --convert-links --random-wait -r -p --level 1 -E -e robots=off --adjust-extension -U mozilla "https://nlp.biu.ac.il/~amit/datasets/GreenScreen/"
+wget --no-clobber --convert-links --random-wait -r -p --level 3 -E -e robots=off --adjust-extension -U mozilla "https://nlp.biu.ac.il/~amit/datasets/GreenScreen/"
 ```
 
 ### Temporary File Storage
@@ -44,6 +53,14 @@ This will train for a long while, and log each epoch result in a `progress` dire
 Once satisfied with the result, the script can be killed.
 
 ![Progress Sample](progress_sample.png)
+
+### Next Steps!
+
+- Add `LSTM` to the `pix2pix` state, to introduce temporal coherence with very little additional compute
+- Add another upsampler, from `256x256` to `512x512`
+- Add face specific descriminator
+- Add hand specific descriminator
+- Mostly position body in fixed position
 
 ## Converting to `tfjs`
 
