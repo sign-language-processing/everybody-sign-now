@@ -1,3 +1,8 @@
+# Deprecated
+
+Repository code and models are now available at [https://github.com/sign-language-processing/pose-to-video](https://github.com/sign-language-processing/pose-to-video).
+
+
 # Everybody Sign Now
 
 This repository aims to train an in-browser real-time image translation model from pose estimation to videos.
